@@ -1,0 +1,79 @@
+import java.util.Scanner;
+
+public class Program
+{
+  public static void main(String[] args) 
+  {
+	  Scanner sc = new Scanner(System.in);
+    double num1 = sc.nextDouble();
+    String op = sc.next();
+    double num2 = sc.nextDouble();
+    boolean validOperation = false;
+    String[] validOperations = {"+", "-", "*", "/"};
+
+    for(int i = 0; i<=validOperations.length; i++)
+    {
+      if(validOperations[i].equals(op))
+      {
+        validOperation = true;
+        break;
+      }
+    }
+        
+        
+    if(validOperation)
+    {
+      if(op.equals("+"))
+      {
+        add(num1, num2);
+      }
+      else if(op.equals("-"))
+      {
+        sub(num1, num2);
+      }
+      else if(op.equals("*"))
+      {
+        multi(num1, num2);
+      }
+      else if(op.equals("/"))
+      {
+        divide(num1, num2);
+      }
+    }
+    else
+    {
+      System.out.println("Invalid Operation");
+    }
+	}
+
+  static void add(double x, double y)
+  {
+    double z = x + y;
+    System.out.println(x + " + " + y + " = " + z);
+  }
+
+  static void sub(double x, double y)
+  {
+    double z = x - y;
+    System.out.println(x + " - " + y + " = " + z);
+  }
+
+  static void multi(double x, double y)
+  {
+    double z = x*y;
+    System.out.println(x + " x " + y + " = " + z);
+  }
+
+  static void divide(double x, double y)
+  {
+    if(x != 0&& y != 0)
+    {
+      double z = x/y;
+      System.out.println(x + " ÷ " + y + " = " + z);
+    }
+    else
+    {
+      System.out.println("Error: Cannot divide with 0");
+    }
+  }
+}
