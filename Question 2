@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Program
+{
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+        double radius = sc.nextDouble();
+
+        System.out.println("If the radius is " + radius + ", then:");
+        diameter(radius);
+        circumference(radius);
+        area(radius);
+	}
+
+    static void diameter(double r)
+    {
+        double d = r*2;
+        System.out.println("Diameter = " + d);
+    }
+
+    static void circumference(double r)
+    {
+        double c = 2*Math.PI*r;
+        System.out.println("Circumference = " + c);
+    }
+
+    static void area(double r)
+    {
+        double a = Math.PI*(r*r);
+        System.out.println("Area = " + a);
+    }
+}
