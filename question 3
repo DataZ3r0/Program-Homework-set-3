@@ -1,0 +1,50 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class App
+{
+    public static void main(String[] args) throws Exception
+    {
+        Scanner sc = new Scanner(System.in);
+        Random rn = new Random();
+        int hiddenNum = rn.nextInt(10)+1;
+        int lives = 5;
+        
+        System.out.println("Welcome to the guessing game.");
+        System.out.println("I wil pick a number from 1-10.");
+        System.out.println("And you have 5 tries to guess it.");
+
+        while(lives>0)
+        {
+            int guess = sc.nextInt();
+
+            if(guess<1||guess>10) //make sure guess is in valid perameters
+            {
+                System.out.println("Invalid, must be between 1-10");
+                continue;
+            }
+
+            if(guess==hiddenNum) //if correct
+            {
+                System.out.println("Congrats! you guessed the number.");
+                break;
+            }
+            else
+            {
+                System.out.println("Wrong, try again");
+                lives--;
+                if(lives>0) //if wrong but still has lives
+                {
+                System.out.println("Lives Remaining:" + lives);
+                }
+                else //if loses
+                {
+                    System.out.println("Game over");
+                    System.out.println("The hidden number was " + hiddenNum);
+                }
+            }
+        }
+        System.out.println("Restart to play again.");
+        sc.close();
+    }
+}
